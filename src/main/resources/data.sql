@@ -1,4 +1,4 @@
-INSERT INTO tb_usuario (first_name, last_name, email, password) VALUES ('Moacir', 'David', 'moacir@gmail.com', '123');
+INSERT INTO tb_usuario (first_name, last_name, email, password) VALUES ('Moacir', 'David', 'moacir@gmail.com', '$2a$12$7.X0j7eLkcJ4H50tRVrIj.1ZMap7DSVsNC9xVkAGsqnTM57aWlCJW');
 INSERT INTO tb_usuario (first_name, last_name, email, password) VALUES ('admin', 'admin', 'admin@gmail.com', 'admin');
 
 
