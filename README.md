@@ -7,12 +7,12 @@
 # Aplicação: Estaggio 0.0.1 - SNAPSHOT.
 
 # Principais Tecnologias e ambientes utilizados: 
-* + Java,
-* + JDK (Java Development Kit),
-* + Visual Studio Code,
-* + PostGreSQL,
-* + PgAdmin4,
-* + Postman API Platform.
+* Java,
+* JDK (Java Development Kit),
+* Visual Studio Code,
+* PostGreSQL,
+* PgAdmin4,
+* Postman API Platform.
 
 ## **Desenvolvido por:**
 [``Moacir David``](https://github.com/moacirdavidag)
