@@ -22,6 +22,8 @@ public class OrientadorDTO implements Serializable {
 
     private List<Aluno> orientandos = new ArrayList<Aluno>();
 
+    public OrientadorDTO() {}
+
     public OrientadorDTO(Long id, @NotBlank(message = "Campo obrigatório") String nome,
             @NotBlank(message = "Campo obrigatório") String matricula) {
         this.id = id;

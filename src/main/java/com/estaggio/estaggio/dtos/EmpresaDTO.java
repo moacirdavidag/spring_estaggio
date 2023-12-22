@@ -22,9 +22,10 @@ public class EmpresaDTO implements Serializable {
 
     private List<Estagio> estagios;
 
+    public EmpresaDTO() { }
+
     public EmpresaDTO(Long id, @NotBlank(message = "Campo obrigatório") String razaoSocial,
             @NotBlank(message = "Campo obrigatório") String cnpj) {
-        this.id = id;
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
     }

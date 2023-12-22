@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 @Entity
 @Table(name = "tb_estagio")
 public class Estagio implements Serializable {
@@ -25,12 +27,15 @@ public class Estagio implements Serializable {
     private Date dataFim;
     private String status;
 
+    @JsonSerialize
     @OneToOne
-    private Orientador orientador = new Orientador();
+    private Orientador orientador;
+    @JsonSerialize
     @OneToOne
-    private Aluno aluno = new Aluno();
+    private Aluno aluno;
+    @JsonSerialize
     @OneToOne
-    private Empresa empresa = new Empresa();
+    private Empresa empresa;
 
     public Estagio() { }
 

@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_empresa")
@@ -24,7 +27,8 @@ public class Empresa  implements Serializable {
     private String cnpj;
     private String razaoSocial;
 
-    @OneToMany(mappedBy = "empresa")
+    @JsonIgnore
+    @OneToMany(mappedBy = "empresa", fetch = FetchType.EAGER)
     private List<Estagio> estagios = new ArrayList<Estagio>();
 
     public Empresa() { }

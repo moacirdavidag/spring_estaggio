@@ -13,6 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import net.bytebuddy.agent.builder.AgentBuilder.PoolStrategy.Eager;
+
 @Entity
 @Table(name = "tb_orientador")
 public class Orientador implements Serializable {
@@ -26,7 +30,8 @@ public class Orientador implements Serializable {
     private String nome;
     private String matricula;
 
-    @OneToMany(mappedBy = "orientador", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "orientador", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Aluno> orientandos = new ArrayList<Aluno>();
 
     public Orientador() {}

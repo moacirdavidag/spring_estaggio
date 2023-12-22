@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.validation.constraints.NotBlank;
 
 import com.estaggio.estaggio.entities.Aluno;
+import com.estaggio.estaggio.entities.Estagio;
 import com.estaggio.estaggio.entities.Orientador;
 
 
@@ -20,6 +21,8 @@ public class AlunoDTO implements Serializable {
     private String matricula;
 
     private Orientador orientador;
+
+    public AlunoDTO() { }
     
     public AlunoDTO(Long id, @NotBlank(message = "Campo obrigatório") String nome,
             @NotBlank(message = "Campo obrigatório") String matricula) {

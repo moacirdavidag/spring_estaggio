@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,7 +36,7 @@ public class EstagioResource {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<EstagioDTO> findEstagioById(Long id) {
+    public ResponseEntity<EstagioDTO> findEstagioById(@PathVariable Long id) {
         EstagioDTO estagioDTO = estagioService.findEstagioById(id);
         return ResponseEntity.ok().body(estagioDTO);
     }
@@ -49,12 +50,12 @@ public class EstagioResource {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<EstagioDTO> update(@PathVariable @Valid EstagioDTO estagioDTO, Long id) {
+    public ResponseEntity<EstagioDTO> update(@PathVariable Long id, @Valid @RequestBody EstagioDTO estagioDTO) {
         EstagioDTO dto = estagioService.update(estagioDTO, id);
         return ResponseEntity.ok().body(dto);
     }
 
-    @Transactional(value = "/id")
+    @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         estagioService.delete(id);
         return ResponseEntity.noContent().build();

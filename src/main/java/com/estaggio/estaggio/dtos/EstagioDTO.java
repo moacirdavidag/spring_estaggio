@@ -4,14 +4,17 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import com.estaggio.estaggio.entities.Aluno;
 import com.estaggio.estaggio.entities.Empresa;
 import com.estaggio.estaggio.entities.Estagio;
 import com.estaggio.estaggio.entities.Orientador;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class EstagioDTO implements Serializable {
-   
+
     private static final long serialVersionUID = 1L;
 
     private Long id;
@@ -20,15 +23,20 @@ public class EstagioDTO implements Serializable {
     private String descricao;
     @NotBlank(message = "Campo obrigatório")
     private String status;
-    @NotBlank(message = "Campo obrigatório")
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @NotNull(message = "Campo obrigatório")
     private Date dataInicio;
-    @NotBlank(message = "Campo obrigatório")
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @NotNull(message = "Campo obrigatório")
     private Date dataFim;
 
     private Orientador orientador;
     private Aluno aluno;
     private Empresa empresa;
-    
+
+    public EstagioDTO() {
+    }
+
     public EstagioDTO(Long id, @NotBlank(message = "Campo obrigatório") String descricao,
             @NotBlank(message = "Campo obrigatório") String status,
             @NotBlank(message = "Campo obrigatório") Date dataInicio,

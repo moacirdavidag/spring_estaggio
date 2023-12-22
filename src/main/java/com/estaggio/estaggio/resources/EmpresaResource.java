@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,7 +36,7 @@ public class EmpresaResource {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<EmpresaDTO> findEmpresaById(Long id) {
+    public ResponseEntity<EmpresaDTO> findEmpresaById(@PathVariable Long id) {
         EmpresaDTO empresaDTO = empresaService.findEmpresaById(id);
         return ResponseEntity.ok().body(empresaDTO);
     }
@@ -49,12 +50,12 @@ public class EmpresaResource {
     }
     
     @PutMapping(value = "/{id}")
-    public ResponseEntity<EmpresaDTO> update(@PathVariable @Valid EmpresaDTO empresaDTO, Long id) {
+    public ResponseEntity<EmpresaDTO> update(@PathVariable Long id, @Valid @RequestBody EmpresaDTO empresaDTO) {
         EmpresaDTO dto = empresaService.update(empresaDTO, id);
         return ResponseEntity.ok().body(dto);
     }
 
-    @Transactional(value = "/{id}")
+    @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         empresaService.delete(id);
         return ResponseEntity.noContent().build();

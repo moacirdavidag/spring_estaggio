@@ -11,7 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import net.bytebuddy.agent.builder.AgentBuilder.PoolStrategy.Eager;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "tb_alunos")
@@ -26,8 +27,10 @@ public class Aluno implements Serializable {
     private String nome;
     private String matricula;
     
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     Orientador orientador = new Orientador();
+
 
     public Aluno() {}
 

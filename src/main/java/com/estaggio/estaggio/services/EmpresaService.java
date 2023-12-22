@@ -76,9 +76,9 @@ public class EmpresaService {
 
     public void dtoToEntity(EmpresaDTO empresaDTO, Empresa empresa) {
         empresa.setId(empresaDTO.getId());
-        empresa.setCnpj(empresa.getCnpj());
-        empresa.setRazaoSocial(empresa.getRazaoSocial());
-        empresa.setEstagios(empresa.getEstagios());
+        empresa.setCnpj(empresaDTO.getCnpj());
+        empresa.setRazaoSocial(empresaDTO.getRazaoSocial());
+        empresa.setEstagios(empresaDTO.getEstagios());
     }
 
 }
